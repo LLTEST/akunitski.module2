@@ -8,7 +8,7 @@ public class Runner {
 	public static void main(String[] args) {
 
 		new Menu();
-
+       System.out.println("asfafs");
 	}
 
 }
