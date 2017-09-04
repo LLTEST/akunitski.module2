@@ -8,10 +8,10 @@ public class Olivier extends Salad {
 
 	public Olivier() {
 		super("Olivier");
-		List<Components> saladO = new ArrayList<>();
-		saladO.add(new Components("Carrot", 200));
-		saladO.add(new Components("Pepper", 250));
-		this.salad = saladO;
+		List<Components> salad = new ArrayList<>();
+		salad.add(new Components("Carrot", 200));
+		salad.add(new Components("Pepper", 250));
+		this.salad = salad;
 	}
 
 }

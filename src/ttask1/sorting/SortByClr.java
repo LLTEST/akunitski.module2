@@ -13,7 +13,7 @@ public class SortByClr implements Comparator<Salad> {
 	 */
 	public int compare(Salad o1, Salad o2) {
 		
-		return o1.foodCalor().compareTo(o2.foodCalor());
+		return new Integer(o1.foodCalorie()).compareTo(new Integer(o2.foodCalorie()));
 
 	}
 

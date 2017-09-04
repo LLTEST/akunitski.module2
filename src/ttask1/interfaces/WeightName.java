@@ -6,10 +6,10 @@ public interface WeightName {
 	/**
 	 * @return Weight of Salad
 	 */
-	Integer foodWeight();
+	int foodWeight();
 
 	/**
 	 * @return Calorie of Salad
 	 */
-	Integer foodCalor();
+	int foodCalorie();
 }

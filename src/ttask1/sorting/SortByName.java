@@ -10,6 +10,7 @@ public class SortByName implements Comparator<Salad> {
 	 */
 	public int compare(Salad o1, Salad o2) {
 		// TODO Auto-generated method stub
+
 		return o1.getName().compareTo(o2.getName());
 	}
 }

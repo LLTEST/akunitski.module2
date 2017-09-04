@@ -10,7 +10,7 @@ public class SortByWgt implements Comparator<Salad> {
 	 */
 	public int compare(Salad o1, Salad o2) {
 		// TODO Auto-generated method stub
-		return o1.foodWeight().compareTo(o2.foodWeight());
+		return new Integer(o1.foodWeight()).compareTo(new Integer(o2.foodWeight()));
 	}
 
 }

@@ -7,11 +7,14 @@ import java.util.List;
 
 public class Salad implements WeightName {
 
+
+
+
 	String name;
 	public List<Components> salad;
 
 	/** come from different salads
-	 * @param saladOut 
+	 * @param saladOut
 	 * @param name
 	 */
 	public Salad(String name) {
@@ -19,7 +22,7 @@ public class Salad implements WeightName {
 		this.name = name;
 	}
 
-	
+
 
 	public String getName() {
 		return name;
@@ -29,35 +32,40 @@ public class Salad implements WeightName {
 	/* (non-Javadoc)
 	 * @see task4.WeightName#foodCalor()
 	 */
-	public Integer foodCalor() {
-		int j = 0;
-		for (Components c : salad) {
-			j += Math.round((double) c.getWght() * c.getCalor()/100);
+
+	public int foodCalorie() {
+
+			int j = 0;
+		try {
+			for (Components c : salad) {
+				j += Math.round((double) c.getWght() * c.getCalor() / 100);
+			}
+		}catch (ArithmeticException e){
+         System.out.println("ArithmeticException deteceted");
 		}
-		Integer f = new Integer(j);
-		return f;
+
+		return j;
 	}
+
 
 	/* (non-Javadoc)
 	 * @see task4.WeightName#foodWeight()
 	 */
-	
-	
-	public Integer foodWeight() throws ArithmeticException {
-		
+
+
+	public int foodWeight()  {
+
 		int h = 0;
-		
+
 		for (Components c : salad) {
 			h += c.getWght();
 		}
-		Integer r = new Integer(h);
+		return h;
 
-		return r;
-		
-		
-		
+
+
 	}
-	
+
 
 	/**
 	 * @return list of products in String format
@@ -72,14 +80,15 @@ public class Salad implements WeightName {
 
 	@Override
 	public String toString() {
-		return "Salad: " + this.getName() + ", calorie: " + this.foodCalor() + " Kcal, weight: " + this.foodWeight()
+
+		return "Salad: " + this.getName() + ", calorie: " + this.foodCalorie() + " Kcal, weight: " + this.foodWeight()
 				+ " g." + "\n";
 	}
 
 	/**
-	 * print the result of namecomp() method to console 
+	 * print the result of namecomp() method to console
 	 */
-	public String toString1() {
+	public String printComposition() {
 		return "Composition of salad '" + this.getName() + "': " + this.namecomp();
 	}
 
