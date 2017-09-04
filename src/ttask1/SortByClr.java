@@ -12,6 +12,7 @@ public class SortByClr implements Comparator<Salad> {
 	public int compare(Salad o1, Salad o2) {
 		System.out.println("asfsag");
 		System.out.println("asfsag");
+		System.out.println("asfsag2353252323523");
 		return o1.foodCalor().compareTo(o2.foodCalor());
 
 	}
