@@ -10,7 +10,8 @@ public class SortByClr implements Comparator<Salad> {
 	 * Method compare Salads by Calories
 	 */
 	public int compare(Salad o1, Salad o2) {
-		
+		System.out.println("asfsag");
+		System.out.println("asfsag");
 		return o1.foodCalor().compareTo(o2.foodCalor());
 
 	}
