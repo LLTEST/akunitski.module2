@@ -1,11 +1,11 @@
-package ttask1;
+package ttask1.salads;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Vinegret extends Salad {
 
-	Vinegret() {
+	public Vinegret() {
 		super("Vinegret");
 		List<Components> saladV = new ArrayList<>();
 		saladV.add(new Components("Tomato", 60));

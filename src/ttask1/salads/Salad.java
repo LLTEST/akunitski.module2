@@ -1,4 +1,6 @@
-package ttask1;
+package ttask1.salads;
+
+import ttask1.interfaces.WeightName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.List;
 public class Salad implements WeightName {
 
 	String name;
-	List<Components> salad;
+	public List<Components> salad;
 
 	/** come from different salads
 	 * @param saladOut 

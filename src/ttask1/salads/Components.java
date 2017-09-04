@@ -1,4 +1,4 @@
-package ttask1;
+package ttask1.salads;
 
 public class Components {
 	private int calorie;
@@ -15,7 +15,7 @@ public class Components {
 		Carrot, Oil, Cucumber, Pepper, Tomato
 	}
 
-	Components(String name, int weight) {
+	public Components(String name, int weight) {
 		this.name = name;
 		this.weight = weight;
 	}
@@ -23,7 +23,7 @@ public class Components {
 	/**
 	 * @return calorie of each type of product
 	 */
-	int getCalor() {
+	public int getCalor() {
 		switch (VegList.valueOf(name)) {
 		case Carrot:
 			calorie = 33;
@@ -51,14 +51,14 @@ public class Components {
 	/**
 	 * @return weight of each product
 	 */
-	int getWght() {
+	public int getWght() {
 		return weight;
 	}
 
 	/**
 	 * @return name of each product
 	 */
-	String getName() {
+	public String getName() {
 		return name;
 	}
 

@@ -1,4 +1,6 @@
-package ttask1;
+package ttask1.sorting;
+
+import ttask1.salads.Salad;
 
 import java.util.Comparator;
 
@@ -7,7 +9,7 @@ public class SortByClr implements Comparator<Salad> {
 	
 
 	/* 
-	 * Method compare Salads by Calories
+	 * Method compare interfaces by Calories
 	 */
 	public int compare(Salad o1, Salad o2) {
 		

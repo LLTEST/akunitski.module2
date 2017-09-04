@@ -1,4 +1,4 @@
-package ttask1;
+package ttask1.salads;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ public class Cobb extends Salad {
 
 	
 
-	Cobb() {
+	public Cobb() {
 		super("Cobb");
 		List<Components> saladC = new ArrayList<>();
 		saladC.add(new Components("Carrot", 100));

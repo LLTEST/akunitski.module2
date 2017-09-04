@@ -1,4 +1,4 @@
-package ttask1;
+package ttask1.interfaces;
 
 public interface WeightName {
 

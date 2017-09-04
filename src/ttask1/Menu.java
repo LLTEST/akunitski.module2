@@ -1,5 +1,13 @@
 package ttask1;
 
+import ttask1.salads.Cobb;
+import ttask1.salads.Olivier;
+import ttask1.salads.Salad;
+import ttask1.salads.Vinegret;
+import ttask1.sorting.SortByClr;
+import ttask1.sorting.SortByName;
+import ttask1.sorting.SortByWgt;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
