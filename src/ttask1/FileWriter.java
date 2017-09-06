@@ -16,7 +16,7 @@ public class FileWriter {
                 file.createNewFile();
             }
 
-            //check that if the file does not exist then create it
+            //check that if the file does not exist then create itasd
             PrintWriter out = new PrintWriter(file.getAbsoluteFile());
 
             try {
