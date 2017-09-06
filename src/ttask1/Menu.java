@@ -32,9 +32,17 @@ public class Menu {
 			String inputSort;
 			do {
 				System.out.println("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :");
+				FileWriter.write("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :");
 				sc = new Scanner(System.in);
 				inputSort = sc.nextLine().toLowerCase();
+				try {
+					int i = Integer.parseInt(inputSort);
 
+				}
+				catch (NumberFormatException nfe) {
+					System.out.println("asfasfasasgag!!!!");
+					nfe.printStackTrace();
+				}
 				switch (inputSort) {
 					case "name":
 						Collections.sort(salad, new SortByName());
@@ -50,12 +58,14 @@ public class Menu {
 						break;
 					default:
 						System.out.println("Please verify what you entered");
+						FileWriter.write("Please verify what you entered");
 
 
 
 				}
 			} while (!inputSort.isEmpty());
 			System.out.println("We pleased you are full! Come here again!");
+			FileWriter.write("We pleased you are full! Come here again!");
 
 
 
@@ -64,6 +74,7 @@ public class Menu {
 				do {
 					System.out.println(
 							"Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
+					FileWriter.write("Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
 					sc = new Scanner(System.in);
 					inputSalad = sc.nextLine().toLowerCase();
 
@@ -82,10 +93,12 @@ public class Menu {
 
 						default:
 							System.out.println("Please verify what you entered");
+							FileWriter.write("Please verify what you entered");
 
 					}
 				} while (!inputSalad.isEmpty());
 				System.out.println("We pleased you are full! Come here again!");
+				FileWriter.write("We pleased you are full! Come here again!");
 			} catch (IndexOutOfBoundsException e){
 				System.out.println("Arrayoutofbound"+e.getStackTrace());
 			}

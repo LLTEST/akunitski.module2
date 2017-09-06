@@ -1,5 +1,6 @@
 package ttask1.salads;
 
+import ttask1.FileWriter;
 import ttask1.interfaces.WeightName;
 
 import java.util.ArrayList;
@@ -83,6 +84,7 @@ public class Salad implements WeightName {
 
 		return "Salad: " + this.getName() + ", calorie: " + this.foodCalorie() + " Kcal, weight: " + this.foodWeight()
 				+ " g." + "\n";
+
 	}
 
 	/**
