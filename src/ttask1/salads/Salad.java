@@ -1,6 +1,5 @@
 package ttask1.salads;
 
-import ttask1.FileWriter;
 import ttask1.interfaces.WeightName;
 
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package ttask1;
 
 public class StringNotDetected extends Exception {
 
-    public StringNotDetected(String message) {
+    public StringNotDetected(String me) {
         super(message);
     }
 }

@@ -2,7 +2,7 @@ package ttask1;
 
 import java.io.*;
 
-public class FileWriter {
+public class FileWriterReader {
     static  String fileName = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\output.txt";
     static  String fileName2 = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\input.txt";
     public static void write(String text) {
@@ -17,11 +17,11 @@ public class FileWriter {
             }
 
             //check that if the file does not exist then create itasd
-            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
+            FileWriter out = new FileWriter(file);
 
             try {
                 //Write the text to the file
-                out.print(text);
+                out.append(text);
             } finally {
                 //After that we must close the file
                 //Otherwise, the file will not be written

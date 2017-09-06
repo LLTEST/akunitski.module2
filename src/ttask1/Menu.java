@@ -8,6 +8,9 @@ import ttask1.sorting.SortByClr;
 import ttask1.sorting.SortByName;
 import ttask1.sorting.SortByWgt;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,9 +23,16 @@ public class Menu {
 	/**
 	 * describe the main logic of program
 	 */
-	public Menu() throws StringNotDetected{
+	public Menu() throws StringNotDetected, IOException {
 
+		String fileName = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\output.txt";
+		File file = new File(fileName);
+		if(!file.exists()){
+			file.createNewFile();
+		}
 
+		//check that if the file does not exist then create itasd
+		FileWriter out = new FileWriter(file);
 		try{
 			List<Salad> salad = new ArrayList<>();
 			salad.add(new Cobb());
@@ -32,7 +42,7 @@ public class Menu {
 			String inputSort;
 			do {
 				System.out.println("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :");
-				FileWriter.write("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :");
+				out.append("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :\\n");
 				sc = new Scanner(System.in);
 				inputSort = sc.nextLine().toLowerCase();
 				try {
@@ -62,14 +72,14 @@ public class Menu {
 						break;
 					default:
 						System.out.println("Please verify what you entered");
-						FileWriter.write("Please verify what you entered");
+						out.append("Please verify what you entered");
 
 
 
 				}
 			} while (!inputSort.isEmpty());
 			System.out.println("We pleased you are full! Come here again!");
-			FileWriter.write("We pleased you are full! Come here again!");
+			out.append("We pleased you are full! Come here again!");
 
 
 
@@ -78,7 +88,7 @@ public class Menu {
 				do {
 					System.out.println(
 							"Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
-					FileWriter.write("Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
+					out.append("Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
 					sc = new Scanner(System.in);
 					inputSalad = sc.nextLine().toLowerCase();
 
@@ -97,12 +107,12 @@ public class Menu {
 
 						default:
 							System.out.println("Please verify what you entered");
-							FileWriter.write("Please verify what you entered");
+							out.append("Please verify what you entered");
 
 					}
 				} while (!inputSalad.isEmpty());
 				System.out.println("We pleased you are full! Come here again!");
-				FileWriter.write("We pleased you are full! Come here again!");
+				out.append("We pleased you are full! Come here again!");
 			} catch (IndexOutOfBoundsException e){
 				System.out.println("Arrayoutofbound"+e.getStackTrace());
 			}
@@ -110,7 +120,7 @@ public class Menu {
 		catch (NullPointerException e) {
 			System.out.println("NullPointerException detected, please verify elements of salad's Arraylist"+e.getStackTrace());
 		}
-
+out.close();
 	}
 
 }
