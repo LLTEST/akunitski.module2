@@ -3,8 +3,8 @@ package ttask1;
 import java.io.*;
 
 public class FileWriter {
-    static  String fileName = "C:\\Users\\chilavert\\workspace\\akunitski.module2\\src\\ttask1\\output.txt";
-    static  String fileName2 = "C:\\Users\\chilavert\\workspace\\akunitski.module2\\src\\ttask1\\input.txt";
+    static  String fileName = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\output.txt";
+    static  String fileName2 = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\input.txt";
     public static void write(String text) {
         //Define a file
 

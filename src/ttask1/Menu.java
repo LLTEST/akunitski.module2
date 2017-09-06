@@ -20,7 +20,7 @@ public class Menu {
 	/**
 	 * describe the main logic of program
 	 */
-	public Menu() {
+	public Menu() throws StringNotDetected{
 
 
 		try{
@@ -36,13 +36,17 @@ public class Menu {
 				sc = new Scanner(System.in);
 				inputSort = sc.nextLine().toLowerCase();
 				try {
-					int i = Integer.parseInt(inputSort);
+					if(!inputSort.matches("[a-zA-Z]+")){
+					throw new StringNotDetected("Failed");}
+				} catch (StringNotDetected str){
+					System.out.println("Type only letters!!!! Not digits!");
+
+						inputSort = sc.nextLine().toLowerCase();
 
 				}
-				catch (NumberFormatException nfe) {
-					System.out.println("asfasfasasgag!!!!");
-					nfe.printStackTrace();
-				}
+
+
+
 				switch (inputSort) {
 					case "name":
 						Collections.sort(salad, new SortByName());
