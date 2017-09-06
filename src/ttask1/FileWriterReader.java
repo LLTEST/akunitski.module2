@@ -1,14 +1,24 @@
 package ttask1;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileWriterReader {
-    static  String fileName = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\output.txt";
-    static  String fileName2 = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\input.txt";
-    public static void write(String text) {
+    private static String filename2="\\src\\ttask1\\input.txt";
+    private static String s2="\\";
+    private static  String absoluteFilePath2  = System.getProperty("user.dir") + s2 + filename2;
+
+
+    private static String filename = "\\src\\ttask1\\output2.txt";
+    private static String s="\\";
+    private static String absoluteFilePath = System.getProperty("user.dir") + s + filename;
+    private static File file=new File(absoluteFilePath);
+
+    public static void create() {
         //Define a file
 
-        File file = new File(fileName);
+
 
         try {
 
@@ -17,43 +27,59 @@ public class FileWriterReader {
             }
 
             //check that if the file does not exist then create itasd
-            FileWriter out = new FileWriter(file);
 
-            try {
-                //Write the text to the file
-                out.append(text);
-            } finally {
-                //After that we must close the file
-                //Otherwise, the file will not be written
-                out.close();
-            }
         } catch(IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-static void readFile(){
-        BufferedReader reader= null;
-        try{
-            reader = new BufferedReader(new FileReader(fileName2));
-       String temp;
-       while ((temp=reader.readLine())!=null){
-                System.out.println(temp);
+    public static void write(String x){
+        try {
+        FileWriter out = new FileWriter(file);
+        BufferedWriter bufferWriter = new BufferedWriter(out);
+
+           try {
+               bufferWriter.append(x);
+           } finally {
+               bufferWriter.close();
+           }
+        }
+        catch (IOException io){
+            io.printStackTrace();
+        }
+
+
+        }
+    public static List<String> readFile() {
+        BufferedReader reader = null;
+        String temp = null;
+        List<String> lines=new ArrayList<String>();
+        try {
+            reader = new BufferedReader(new FileReader(absoluteFilePath2));
+            while ((temp = reader.readLine()) != null) {
+                lines.add(temp);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (reader!=null){
+            if (reader != null) {
                 try {
                     reader.close();
-                }
-                    catch (IOException e){
-                        e.printStackTrace();
-                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
-}
+        return lines;
+    }
+    }
+
+
+
+
+
+
+
 
 
 

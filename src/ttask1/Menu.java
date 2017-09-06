@@ -8,8 +8,6 @@ import ttask1.sorting.SortByClr;
 import ttask1.sorting.SortByName;
 import ttask1.sorting.SortByWgt;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,35 +23,41 @@ public class Menu {
 	 */
 	public Menu() throws StringNotDetected, IOException {
 
-		String fileName = "C:\\Users\\Aliaksandr_Kunitski\\IdeaProjects\\akunitski.module2\\src\\ttask1\\output.txt";
-		File file = new File(fileName);
-		if(!file.exists()){
-			file.createNewFile();
-		}
 
-		//check that if the file does not exist then create itasd
-		FileWriter out = new FileWriter(file);
+
+
+
+
+
+
+		FileWriterReader.create();
+
+
 		try{
 			List<Salad> salad = new ArrayList<>();
-			salad.add(new Cobb());
-			salad.add(new Olivier());
-			salad.add(new Vinegret());
+
+			String Array[]=FileWriterReader.readFile().toArray(new String[]{});
+
+			for(int i=0;i<Array.length; i++){
+				if (Array[i].matches("Cobb")){
+					salad.add(new Cobb());
+				}
+				else if (Array[i].matches("Olivier")){
+					salad.add(new Olivier());
+				}
+				else if (Array[i].matches("Vinegret"))
+					salad.add(new Vinegret());
+			}
+
+
 
 			String inputSort;
 			do {
 				System.out.println("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :");
-				out.append("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :\\n");
+				FileWriterReader.write("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :\n");
 				sc = new Scanner(System.in);
 				inputSort = sc.nextLine().toLowerCase();
-				try {
-					if(!inputSort.matches("[a-zA-Z]+")){
-					throw new StringNotDetected("Failed");}
-				} catch (StringNotDetected str){
-					System.out.println("Type only letters!!!! Not digits!");
 
-						inputSort = sc.nextLine().toLowerCase();
-
-				}
 
 
 
@@ -71,15 +75,22 @@ public class Menu {
 						System.out.println(salad);
 						break;
 					default:
-						System.out.println("Please verify what you entered");
-						out.append("Please verify what you entered");
+						try {
+							if(!inputSort.matches("[a-zA-Z]+")){
+								throw new StringNotDetected("Failed");}
+						} catch (StringNotDetected str){
+							System.out.println("Type only letters!!!! Not digits! "+str);
+							FileWriterReader.write("Type only letters!!!! Not digits!\n");
+
+						}
+
 
 
 
 				}
 			} while (!inputSort.isEmpty());
 			System.out.println("We pleased you are full! Come here again!");
-			out.append("We pleased you are full! Come here again!");
+
 
 
 
@@ -88,7 +99,6 @@ public class Menu {
 				do {
 					System.out.println(
 							"Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
-					out.append("Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
 					sc = new Scanner(System.in);
 					inputSalad = sc.nextLine().toLowerCase();
 
@@ -107,12 +117,10 @@ public class Menu {
 
 						default:
 							System.out.println("Please verify what you entered");
-							out.append("Please verify what you entered");
 
 					}
 				} while (!inputSalad.isEmpty());
 				System.out.println("We pleased you are full! Come here again!");
-				out.append("We pleased you are full! Come here again!");
 			} catch (IndexOutOfBoundsException e){
 				System.out.println("Arrayoutofbound"+e.getStackTrace());
 			}
@@ -120,7 +128,6 @@ public class Menu {
 		catch (NullPointerException e) {
 			System.out.println("NullPointerException detected, please verify elements of salad's Arraylist"+e.getStackTrace());
 		}
-out.close();
 	}
 
 }
