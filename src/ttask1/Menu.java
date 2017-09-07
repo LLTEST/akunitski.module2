@@ -40,25 +40,25 @@ public class Menu {
 			}
 
 
-	for (int i = 0; i < Array.length; i++) {
-		try {
+			for (int i = 0; i < Array.length; i++) {
+				try {
 
-		 if (Array[i].toLowerCase().matches("cobb")) {
-			salad.add(new Cobb());
-		} else if (Array[i].toLowerCase().matches("olivier")) {
-			salad.add(new Olivier());
-		} else if (Array[i].toLowerCase().matches("vinegret"))
-			salad.add(new Vinegret());
-		else if (Array[i].toLowerCase().matches("[a-zA-Z]+")){
-			 FileWriterReader.write("Your file contains unreachable salad "+Array[i]+"verify your file!");
-				throw new SaladNotFound("Your file contains unreachable salad "+Array[i]+"verify your file!");
+					if (Array[i].toLowerCase().matches("cobb")) {
+						salad.add(new Cobb());
+					} else if (Array[i].toLowerCase().matches("olivier")) {
+						salad.add(new Olivier());
+					} else if (Array[i].toLowerCase().matches("vinegret"))
+						salad.add(new Vinegret());
+					else if (Array[i].toLowerCase().matches("[a-zA-Z]+")){
+						FileWriterReader.write("Your file contains unreachable salad '"+Array[i].toUpperCase()+"' verify your file!");
+						throw new SaladNotFound("Your file contains unreachable salad '"+Array[i].toUpperCase()+"' verify your file!");
+					}
+					else throw new SaladNotFound("Your file contains empty line");
+				} catch (SaladNotFound ex){
+					FileWriterReader.write("Program proceed execution with error: "+ex);
+					System.out.println("Program proceed execution with error: "+ex);
+				}
 			}
-		else throw new SaladNotFound("Your file contains empty line");
-		} catch (SaladNotFound ex){
-			FileWriterReader.write("Program proceed execution with error: "+ex);
-			System.out.println("Program proceed execution with error: "+ex);
-		}
-	}
 
 			do {
 				System.out.println("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :");
@@ -90,7 +90,7 @@ public class Menu {
 							else if(inputSort.matches("next")){
 								break;
 							}
-								else if(!inputSort.matches("calorie")|!inputSort.matches("weight")|!inputSort.matches("name")){
+							else if(!inputSort.matches("calorie")|!inputSort.matches("weight")|!inputSort.matches("name")){
 								throw new SaladNotFound("Failed");}
 
 
@@ -127,22 +127,25 @@ public class Menu {
 
 					switch (inputSalad) {
 						case "cobb":
-							System.out.println(salad.get(0).printComposition());
-							System.out.println("Thank you for your choise. \n");
-							FileWriterReader.write(salad.get(0).printComposition());
-							FileWriterReader.write("Thank you for your choise. \n");
+							for(int i=0;i<salad.size();i++)
+								if(salad.get(i).getName().matches("Cobb")){
+									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
+									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");
+								}
 							break;
 						case "olivier":
-							System.out.println(salad.get(1).printComposition());
-							System.out.println("Thank you for your choise. \n");
-							FileWriterReader.write(salad.get(1).printComposition());
-							FileWriterReader.write("Thank you for your choise. \n");
+							for(int i=0;i<salad.size();i++)
+								if(salad.get(i).getName().matches("Olivier")){
+									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
+									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");
+								}
 							break;
 						case "vinegret":
-							System.out.println(salad.get(2).printComposition());
-							System.out.println("Thank you for your choise. \n");
-							FileWriterReader.write(salad.get(2).printComposition());
-							FileWriterReader.write("Thank you for your choise. \n");
+							for(int i=0;i<salad.size();i++)
+								if(salad.get(i).getName().matches("Vinegret")){
+									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
+									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");
+								}
 							break;
 						default:
 							try {
@@ -150,7 +153,7 @@ public class Menu {
 									break;
 								}
 
-							else	if(!inputSalad.matches("cobb")|!inputSalad.matches("olivier")|!inputSalad.matches("vinegret")){
+								else	if(!inputSalad.matches("cobb")|!inputSalad.matches("olivier")|!inputSalad.matches("vinegret")){
 									throw new StringNotDetected("Failed");}
 							} catch (StringNotDetected str){
 								System.out.println("Salad not found "+str);
