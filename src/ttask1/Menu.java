@@ -8,6 +8,7 @@ import ttask1.sorting.SortByClr;
 import ttask1.sorting.SortByName;
 import ttask1.sorting.SortByWgt;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,11 +27,6 @@ public class Menu {
 
 
 
-
-
-
-
-		FileWriterReader.create();
 
 
 		try{
@@ -65,6 +61,7 @@ public class Menu {
 					case "name":
 						Collections.sort(salad, new SortByName());
 						System.out.println(salad);
+						FileWriterReader.write(salad.toString());
 						break;
 					case "calorie":
 						Collections.sort(salad, new SortByClr());

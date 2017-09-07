@@ -10,6 +10,7 @@ public class Runner {
 	 */
 	public static void main(String[] args) throws StringNotDetected, IOException {
 
+		FileWriterReader.create();
 		new Menu();
 
 
