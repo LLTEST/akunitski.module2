@@ -8,7 +8,6 @@ import ttask1.sorting.SortByClr;
 import ttask1.sorting.SortByName;
 import ttask1.sorting.SortByWgt;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,10 +18,12 @@ public class Menu {
 
 	private Scanner sc;
 	String inputSalad;
+	String inputSort;
+	static ArrayList <String>arr=new ArrayList<>();
 	/**
 	 * describe the main logic of program
 	 */
-	public Menu() throws StringNotDetected, IOException {
+	public Menu() throws StringNotDetected, IOException,FileIsEmpty,SaladNotFound {
 
 
 		try {
@@ -31,45 +32,39 @@ public class Menu {
 			String Array[] = FileWriterReader.readFile().toArray(new String[]{});
 			try {
 				if (Array.length == 0) {
-					throw new StringNotDetected(("FIle is empty"));
+					throw new FileIsEmpty(("FIle is empty"));
 				}
-			} catch (StringNotDetected ex) {
+			} catch (FileIsEmpty ex) {
 				ex.printStackTrace();
-
+				FileWriterReader.write("FIle is empty");
 			}
 
 
 	for (int i = 0; i < Array.length; i++) {
 		try {
 
-		 if (Array[i].matches("Cobb")) {
+		 if (Array[i].toLowerCase().matches("cobb")) {
 			salad.add(new Cobb());
-		} else if (Array[i].matches("Olivier")) {
+		} else if (Array[i].toLowerCase().matches("olivier")) {
 			salad.add(new Olivier());
-		} else if (Array[i].matches("Vinegret"))
+		} else if (Array[i].toLowerCase().matches("vinegret"))
 			salad.add(new Vinegret());
-		else if (Array[i].matches("[a-zA-Z]+")){
-
-				throw new StringNotDetected("Your file contains unreachable salad "+Array[i]);
+		else if (Array[i].toLowerCase().matches("[a-zA-Z]+")){
+			 FileWriterReader.write("Your file contains unreachable salad "+Array[i]+"verify your file!");
+				throw new SaladNotFound("Your file contains unreachable salad "+Array[i]+"verify your file!");
 			}
-		else throw new StringNotDetected("Your file contains empty line");
-		} catch (StringNotDetected ex){
-
+		else throw new SaladNotFound("Your file contains empty line");
+		} catch (SaladNotFound ex){
+			FileWriterReader.write("Program proceed execution with error: "+ex);
 			System.out.println("Program proceed execution with error: "+ex);
 		}
 	}
 
-
-
-			String inputSort;
 			do {
-				System.out.println("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :");
-				FileWriterReader.write("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :\n");
+				System.out.println("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :");
+				FileWriterReader.write("Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :");
 				sc = new Scanner(System.in);
 				inputSort = sc.nextLine().toLowerCase();
-
-
-
 
 				switch (inputSort) {
 					case "name":
@@ -80,18 +75,33 @@ public class Menu {
 					case "calorie":
 						Collections.sort(salad, new SortByClr());
 						System.out.println(salad);
+						FileWriterReader.write(salad.toString());
 						break;
 					case "weight":
 						Collections.sort(salad, new SortByWgt());
 						System.out.println(salad);
+						FileWriterReader.write(salad.toString());
 						break;
 					default:
 						try {
 							if(!inputSort.matches("[a-zA-Z]+")){
+								FileWriterReader.write("Failed");
 								throw new StringNotDetected("Failed");}
+							else if(inputSort.matches("next")){
+								break;
+							}
+								else if(!inputSort.matches("calorie")|!inputSort.matches("weight")|!inputSort.matches("name")){
+								throw new SaladNotFound("Failed");}
+
+
 						} catch (StringNotDetected str){
 							System.out.println("Type only letters!!!! Not digits! "+str);
 							FileWriterReader.write("Type only letters!!!! Not digits!\n");
+
+						}
+						catch (SaladNotFound str){
+							System.out.println("Sorting you entered doesn't exists "+str);
+							FileWriterReader.write("Sorting you entered doesn't exists "+str);
 
 						}
 
@@ -99,8 +109,7 @@ public class Menu {
 
 
 				}
-			} while (!inputSort.isEmpty());
-			System.out.println("We pleased you are full! Come here again!");
+			} while (!inputSort.matches("next"));
 
 
 
@@ -109,29 +118,53 @@ public class Menu {
 
 				do {
 					System.out.println(
-							"Please enter name of salad (Cobb,Olivier,Vinegret) or do not type anything and tap enter:");
+							"Please enter name of salad (Cobb,Olivier,Vinegret) or type 'next':");
+					FileWriterReader.write("Please enter name of salad (Cobb,Olivier,Vinegret) or type 'next':");
 					sc = new Scanner(System.in);
 					inputSalad = sc.nextLine().toLowerCase();
+
+					arr.add(inputSalad);
 
 					switch (inputSalad) {
 						case "cobb":
 							System.out.println(salad.get(0).printComposition());
 							System.out.println("Thank you for your choise. \n");
+							FileWriterReader.write(salad.get(0).printComposition());
+							FileWriterReader.write("Thank you for your choise. \n");
 							break;
 						case "olivier":
 							System.out.println(salad.get(1).printComposition());
 							System.out.println("Thank you for your choise. \n");
+							FileWriterReader.write(salad.get(1).printComposition());
+							FileWriterReader.write("Thank you for your choise. \n");
 							break;
 						case "vinegret":
 							System.out.println(salad.get(2).printComposition());
 							System.out.println("Thank you for your choise. \n");
-
+							FileWriterReader.write(salad.get(2).printComposition());
+							FileWriterReader.write("Thank you for your choise. \n");
+							break;
 						default:
-							System.out.println("Please verify what you entered");
+							try {
+								if(inputSalad.matches("next")){
+									break;
+								}
+
+							else	if(!inputSalad.matches("cobb")|!inputSalad.matches("olivier")|!inputSalad.matches("vinegret")){
+									throw new StringNotDetected("Failed");}
+							} catch (StringNotDetected str){
+								System.out.println("Salad not found "+str);
+								FileWriterReader.write("Salad not found\n");
+
+							}
 
 					}
-				} while (!inputSalad.isEmpty());
-				System.out.println("We pleased you are full! Come here again!");
+				} while (!inputSalad.matches("next"));
+				if(arr.contains("cobb")|arr.contains("olivier")|arr.contains("vinegret")){
+					System.out.println("We pleased you are full! Come here again!");
+				} else
+				{System.out.println("Sorry for missing your favorite food, come here again later");}
+				FileWriterReader.write("We pleased you are full! Come here again!");
 			} catch (IndexOutOfBoundsException e){
 				System.out.println("Arrayoutofbound"+e.getStackTrace());
 			}

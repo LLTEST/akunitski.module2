@@ -1,2 +1,14 @@
 
-Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :
+Your file contains unreachable salad asgasgasverify your file!
+Program proceed execution with error: ttask1.SaladNotFound: Your file contains unreachable salad asgasgasverify your file!
+Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
+Please enter name of salad (Cobb,Olivier,Vinegret) or type 'next':
+Composition of salad 'Vinegret': Tomato, Carrot, Pepper, 
+Thank you for your choise. 
+
+Please enter name of salad (Cobb,Olivier,Vinegret) or type 'next':
+Composition of salad 'Cobb': Carrot, Cucumber, Tomato, Oil, 
+Thank you for your choise. 
+
+Please enter name of salad (Cobb,Olivier,Vinegret) or type 'next':
+We pleased you are full! Come here again!
