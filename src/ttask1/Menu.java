@@ -25,25 +25,39 @@ public class Menu {
 	public Menu() throws StringNotDetected, IOException {
 
 
-
-
-
-
-		try{
+		try {
 			List<Salad> salad = new ArrayList<>();
 
-			String Array[]=FileWriterReader.readFile().toArray(new String[]{});
+			String Array[] = FileWriterReader.readFile().toArray(new String[]{});
+			try {
+				if (Array.length == 0) {
+					throw new StringNotDetected(("FIle is empty"));
+				}
+			} catch (StringNotDetected ex) {
+				ex.printStackTrace();
 
-			for(int i=0;i<Array.length; i++){
-				if (Array[i].matches("Cobb")){
-					salad.add(new Cobb());
-				}
-				else if (Array[i].matches("Olivier")){
-					salad.add(new Olivier());
-				}
-				else if (Array[i].matches("Vinegret"))
-					salad.add(new Vinegret());
 			}
+
+
+	for (int i = 0; i < Array.length; i++) {
+		try {
+
+		 if (Array[i].matches("Cobb")) {
+			salad.add(new Cobb());
+		} else if (Array[i].matches("Olivier")) {
+			salad.add(new Olivier());
+		} else if (Array[i].matches("Vinegret"))
+			salad.add(new Vinegret());
+		else if (Array[i].matches("[a-zA-Z]+")){
+
+				throw new StringNotDetected("Your file contains unreachable salad "+Array[i]);
+			}
+		else throw new StringNotDetected("Your file contains empty line");
+		} catch (StringNotDetected ex){
+
+			System.out.println("Program proceed execution with error: "+ex);
+		}
+	}
 
 
 

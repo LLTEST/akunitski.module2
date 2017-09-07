@@ -1,27 +1,2 @@
 
-
 Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :
-
-
-
-
-[Salad: Cobb, calorie: 148 Kcal, weight: 720 g.
-, Salad: Olivier, calorie: 86 Kcal, weight: 450 g.
-, Salad: Vinegret, calorie: 182 Kcal, weight: 680 g.
-]
-
-
-
-Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :
-
-
-
-
-Please enter type of menu you want to see (sorted by Name, Weight, Calorie) :
-
-
-
-
-Type only letters!!!! Not digits!
-
-

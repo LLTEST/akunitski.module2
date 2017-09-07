@@ -41,10 +41,7 @@ public class FileWriterReader {
 
            try {
                bufferWriter.append('\n');
-               bufferWriter.append("\n");
                bufferWriter.append(x);
-               bufferWriter.append("\n");
-               bufferWriter.append('\n');
            } finally {
                bufferWriter.close();
            }
@@ -55,6 +52,8 @@ public class FileWriterReader {
 
 
         }
+
+
     public static List<String> readFile() {
         BufferedReader reader = null;
         String temp;
