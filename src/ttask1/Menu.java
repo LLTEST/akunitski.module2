@@ -123,26 +123,48 @@ public class Menu {
 					arr.add(inputSalad);
 
 					switch (inputSalad) {
+
 						case "cobb":
+							try{
 							for(int i=0;i<salad.size();i++)
 								if(salad.get(i).getName().matches("Cobb")){
+
+								String s="Cobb";
 									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
-									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");
-								}
-							break;
+									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");}
+								else if (!salad.equals("Cobb")){
+									throw new SaladNotFound("Sorry, salad is currently not available");}}
+                             catch(SaladNotFound ex){
+							System.out.println(ex);
+						}
+						break;
 						case "olivier":
-							for(int i=0;i<salad.size();i++)
-								if(salad.get(i).getName().matches("Olivier")){
-									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
-									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");
-								}
+							try{
+								for(int i=0;i<salad.size();i++)
+									if(salad.get(i).getName().matches("Olivier")){
+
+										String s="Olivier";
+										System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
+										FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");}
+									else if (!salad.equals("Olivier")){
+										throw new SaladNotFound("Sorry, salad is currently not available");}}
+							catch(SaladNotFound ex){
+								System.out.println(ex);
+							}
 							break;
 						case "vinegret":
-							for(int i=0;i<salad.size();i++)
-								if(salad.get(i).getName().matches("Vinegret")){
-									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
-									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");
-								}
+							try{
+								for(int i=0;i<salad.size();i++)
+									if(salad.get(i).getName().matches("Vinegret")){
+
+										String s="Vinegret";
+										System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
+										FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");}
+									else if (!salad.equals("Vinegret")){
+										throw new SaladNotFound("Sorry, salad is currently not available");}}
+							catch(SaladNotFound ex){
+								System.out.println(ex);
+							}
 							break;
 						default:
 							try {
