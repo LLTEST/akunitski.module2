@@ -23,21 +23,18 @@ public class Menu {
 	/**
 	 * describe the main logic of program
 	 */
-	public Menu() throws StringNotDetected, IOException,FileIsEmpty,SaladNotFound {
+	public Menu() throws StringNotDetected, IOException,FileIsEmpty,SaladNotFound,SortingNotFound {
 
 
 		try {
 			List<Salad> salad = new ArrayList<>();
 
 			String Array[] = FileWriterReader.readFile().toArray(new String[]{});
-			try {
+
 				if (Array.length == 0) {
 					throw new FileIsEmpty(("FIle is empty"));
 				}
-			} catch (FileIsEmpty ex) {
-				ex.printStackTrace();
-				FileWriterReader.write("FIle is empty");
-			}
+
 
 
 			for (int i = 0; i < Array.length; i++) {
@@ -91,7 +88,7 @@ public class Menu {
 								break;
 							}
 							else if(!inputSort.matches("calorie")|!inputSort.matches("weight")|!inputSort.matches("name")){
-								throw new SaladNotFound("Failed");}
+								throw new SortingNotFound("Failed");}
 
 
 						} catch (StringNotDetected str){
@@ -99,7 +96,7 @@ public class Menu {
 							FileWriterReader.write("Type only letters!!!! Not digits!\n");
 
 						}
-						catch (SaladNotFound str){
+						catch (SortingNotFound str){
 							System.out.println("Sorting you entered doesn't exists "+str);
 							FileWriterReader.write("Sorting you entered doesn't exists "+str);
 
@@ -175,6 +172,14 @@ public class Menu {
 		catch (NullPointerException e) {
 			System.out.println("NullPointerException detected, please verify elements of salad's Arraylist"+e.getStackTrace());
 		}
+
+		catch (FileIsEmpty ex) {
+			ex.printStackTrace();
+			FileWriterReader.write("FIle is empty");
+		}
+
+
+
 	}
 
 }

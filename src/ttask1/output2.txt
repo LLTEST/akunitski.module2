@@ -1,9 +1,25 @@
 
-Your file contains unreachable salad 'ASGASGAS' verify your file!
-Program proceed execution with error: ttask1.SaladNotFound: Your file contains unreachable salad 'ASGASGAS' verify your file!
+Program proceed execution with error: ttask1.SaladNotFound: Your file contains empty line
+Program proceed execution with error: ttask1.SaladNotFound: Your file contains empty line
+Your file contains unreachable salad 'ASFGASGAS' verify your file!
+Program proceed execution with error: ttask1.SaladNotFound: Your file contains unreachable salad 'ASFGASGAS' verify your file!
+Program proceed execution with error: ttask1.SaladNotFound: Your file contains empty line
 Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
-[Salad: Cobb, calorie: 148 Kcal, weight: 720 g.
-, Salad: Olivier, calorie: 86 Kcal, weight: 450 g.
+[Salad: Olivier, calorie: 86 Kcal, weight: 450 g.
+, Salad: Vinegret, calorie: 182 Kcal, weight: 680 g.
+, Salad: Cobb, calorie: 148 Kcal, weight: 720 g.
+]
+Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
+[Salad: Olivier, calorie: 86 Kcal, weight: 450 g.
+, Salad: Cobb, calorie: 148 Kcal, weight: 720 g.
 , Salad: Vinegret, calorie: 182 Kcal, weight: 680 g.
 ]
 Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
+Failed
+Type only letters!!!! Not digits!
+
+Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
+Sorting you entered doesn't exists ttask1.SortingNotFound: Failed
+Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
+Please enter name of salad (Cobb,Olivier,Vinegret) or type 'next':
+We pleased you are full! Come here again!
