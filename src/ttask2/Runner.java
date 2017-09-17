@@ -1,15 +1,12 @@
 package ttask2;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.TreeMap;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Runner {
 
 	public static void main(String[] args) {
+
+
 		int k = 30000;
 		List<String> list = new LinkedList<String>();
 		// TODO Auto-generated method stub

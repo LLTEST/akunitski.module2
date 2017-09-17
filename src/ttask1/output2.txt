@@ -2,8 +2,3 @@
 Your file contains unreachable salad 'ASGASGAS' verify your file!
 Program proceed execution with error: ttask1.SaladNotFound: Your file contains unreachable salad 'ASGASGAS' verify your file!
 Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
-[Salad: Cobb, calorie: 148 Kcal, weight: 720 g.
-, Salad: Olivier, calorie: 86 Kcal, weight: 450 g.
-, Salad: Vinegret, calorie: 182 Kcal, weight: 680 g.
-]
-Please enter type of menu you want to see (sorted by Name, Weight, Calorie) or type 'next' :
