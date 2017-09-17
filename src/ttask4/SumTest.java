@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class SumTest extends BaseTestClass {
 
 
-    @Test(dataProvider = "dataTest")
+    @Test(description = "Positive test for lon sum: ", dataProvider = "dataTest", groups = {"positive"})
     public void TestOnePlusOne(long first, long second, long third){
 
     long sum = calculator.sum(first,second);
@@ -17,16 +17,16 @@ public class SumTest extends BaseTestClass {
     @DataProvider(name = "dataTest")
     public Object[][] dataForDivLongPositive() {
         return new Object[][] {
-                { 1, 1, 2 },
-                { -1, 1, 0 },
+                { 100, 100, 200 },
+                { -100, 100, 0 },
                 { -1, -2, -3 },
-                { 0, 1, 1 },
-                { -5, 5, 0 }
+                { 22, 5, 27 },
+                { -95, 5, -90 }
         };
     }
 
 
-    @Test(dataProvider = "dataTest2")
+    @Test(description = "Positive test for double sum: ", dataProvider = "dataTest2", groups = {"positive"})
     public void TestOnePlusOneDouble(double first, double second, double third){
 
         double sum = calculator.sum(first,second);
@@ -36,7 +36,7 @@ public class SumTest extends BaseTestClass {
     @DataProvider(name = "dataTest2")
     public Object[][] dataForSumDouble() {
         return new Object[][] {
-                { 1.0, 1.0, 2.0 },
+                { 100000.0, 1.0, 100001.0 },
                 { -1.0, 1.0, 0.0 },
                 { -1.0, -2.0, -3.0 },
                 { 0, 1.0, 1.0 },

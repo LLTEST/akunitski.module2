@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class CoTangentTest extends BaseTestClass {
-    @Test(description = "Simle positive ctg:", dataProvider = "dataForCtgPositive", groups = {"positive"})
+    @Test(description = "Positive ctg:", dataProvider = "dataForCtgPositive", groups = {"positive"})
     public void testCtgPositive(double first, double expected) {
         double ctg = calculator.ctg(first);
         Assert.assertEquals(ctg, expected);
@@ -15,20 +15,16 @@ public class CoTangentTest extends BaseTestClass {
     public Object[][] dataForCtgPositive() {
         return new Object[][] {
                 { 45, 1 },
-                { 90, 0 }    //This is a BUG: expected [0.0] but found [1.0]
+                { 90, 0 }    // BUG: expected [0.0] but found [1.0]
         };
     }
 
-    @Test(description = "Simle negative ctg:", dataProvider = "dataForCtgNegative",
+    @Test(description = "Negative ctg:",
             expectedExceptions = ArithmeticException.class, groups = {"negative"})
-    public void testCtgNegative(double first) {
+    public void testCtgNegative() {
+        double first=0;  // BUG: method should have thrown an exception of class java.lang.ArithmeticException
         calculator.ctg(first);
     }
 
-    @DataProvider(name = "dataForCtgNegative")
-    public Object[][] dataForCtg() {
-        return new Object[][] {
-                { 0 }   // This a BUG: no exception for 0 Ctg.
-        };
-    }
+
 }

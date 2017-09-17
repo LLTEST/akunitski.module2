@@ -14,8 +14,8 @@ public class SquareTest extends BaseTestClass {
     @DataProvider(name = "dataForSqrtPositive")
     public Object[][] dataForSqrtPositive() {
         return new Object[][] {
-                { 4, 2 },
-                { 16, 4 },
+                { 9, 3 },
+                { 25, 5 },
                 { 0, 0 }
         };
     }
@@ -29,7 +29,7 @@ public class SquareTest extends BaseTestClass {
     @DataProvider(name = "dataForSqrtNegative")
     public Object[][] dataForSqrtNegative() {
         return new Object[][] {
-                {-4 }   // This a BUG. No exception for negative Sqrt.
+                {-4 }   //  BUG: No exception for negative Sqrt.
         };
     }
 

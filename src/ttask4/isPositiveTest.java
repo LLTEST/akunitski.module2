@@ -15,8 +15,8 @@ public class isPositiveTest extends BaseTestClass {
     @DataProvider(name = "dataForIsNegative")
     public Object[][] dataForIsPositive() {
         return new Object[][] {
-                {-50, false},
-                {50, true}
+                {-10, false},
+                {10, true}
         };
     }
 
