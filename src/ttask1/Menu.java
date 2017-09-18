@@ -126,18 +126,18 @@ public class Menu {
 
 						case "cobb":
 							try{
-							for(int i=0;i<salad.size();i++)
-								if(salad.get(i).getName().matches("Cobb")){
+								for(int i=0;i<salad.size();i++)
+									if(salad.get(i).getName().matches("Cobb")){
 
-								String s="Cobb";
-									System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
-									FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");}
-								else if (!salad.equals("Cobb")){
-									throw new SaladNotFound("Sorry, salad is currently not available");}}
-                             catch(SaladNotFound ex){
-							System.out.println(ex);
-						}
-						break;
+										String s="Cobb";
+										System.out.println(salad.get(i).printComposition()+"Thank you for your choise. \n");
+										FileWriterReader.write(salad.get(i).printComposition()+"Thank you for your choise. \n");}
+									else if (!salad.equals("Cobb")){
+										throw new SaladNotFound("Sorry, salad is currently not available");}}
+							catch(SaladNotFound ex){
+								System.out.println(ex);
+							}
+							break;
 						case "olivier":
 							try{
 								for(int i=0;i<salad.size();i++)
