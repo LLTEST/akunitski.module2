@@ -8,7 +8,7 @@ public class Runner2 {
 
     public static void main(String args[]) throws IOException {
 
-
+        System.out.println(Math.sqrt(-9));
 
         File file = new File("newFile.txt");
         try {

@@ -26,7 +26,7 @@ public class DivTest extends BaseTestClass {
 
     @Test(description = "Negative long division:", dataProvider = "dataForDivLongNegative",
             expectedExceptions = NumberFormatException.class, groups = {"negative"})
-    public void testDivLongNegative(long first, long second) {
+    public void DivLongNegative(long first, long second) {
         calculator.div(first, second);
     }
 
@@ -39,33 +39,30 @@ public class DivTest extends BaseTestClass {
 
     @Test(description = "Simple positive double division:", dataProvider = "dataForDivDoublePositive",
             groups = {"positive"})
-    public void testDivDoublePositive(double first, double second, double expected) {
+    public void DivDoublePositive(double first, double second, double expected) {
         double div = calculator.div(first, second);
         Assert.assertEquals(div, expected, "");
     }
 
     @DataProvider(name = "dataForDivDoublePositive")
-    public Object[][] dataForDivDoublePositive() {
+    public Object[][] ForDivDoublePositive() {
         return new Object[][] {
-                { 4.4, 2.2, 2.0 },
-                { 12.6, 3.0, 4.2 },
                 { 6.3, -3.0, -2.1 },
                 { -2.2, 2.0, -1.1 },
                 { -2.2, -2.0, 1.1 },
                 { 0.3, 3.0, 0.1 },  // BUG: expected [0.1] but found [0.09999999999999999]
-                { 0.3, 0.3, 1.0 },
-                { 3.0, 0.3, 10.0 }
+                { 7.0, 0.7, 10.0 }
         };
     }
 
     @Test(description = "Simple negative double division:", dataProvider = "dataForDivDoubleNegative",
             expectedExceptions = ArithmeticException.class, groups = {"negative"})
-    public void testDivDoubleNegative(double first, double second) {
+    public void DivDoubleNegative(double first, double second) {
         calculator.div(first, second);
     }
 
     @DataProvider(name = "dataForDivDoubleNegative")
-    public Object[][] dataForDivDoubleNegative() {
+    public Object[][] ForDivDoubleNegative() {
         return new Object[][] {
                 { 4.2, 0 }    // BUG: no exception for div on 0 for double.
         };
