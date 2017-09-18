@@ -8,13 +8,13 @@ public class DivTest extends BaseTestClass {
 
     @Test(description = "Positive long division:", dataProvider = "dataForDivLongPositive",
             groups = {"positive"})
-    public void testDivLongPositive(long first, long second, long expected) {
+    public void DivLongPositive(long first, long second, long expected) {
         long div = calculator.div(first, second);
         Assert.assertEquals(div, expected, "");
     }
 
     @DataProvider(name = "dataForDivLongPositive")
-    public Object[][] dataForDivLongPositive() {
+    public Object[][] ForDivLongPositive() {
         return new Object[][] {
                 { 4, 2, 2 },
                 { 12, 3, 4 },
@@ -31,7 +31,7 @@ public class DivTest extends BaseTestClass {
     }
 
     @DataProvider(name = "dataForDivLongNegative")
-    public Object[][] dataForDivLongNegative() {
+    public Object[][] ForDivLongNegative() {
         return new Object[][] {
                 { 7, 0 }
         };
