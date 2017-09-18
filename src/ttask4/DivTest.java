@@ -33,7 +33,7 @@ public class DivTest extends BaseTestClass {
     @DataProvider(name = "dataForDivLongNegative")
     public Object[][] dataForDivLongNegative() {
         return new Object[][] {
-                { 4, 0 }
+                { 7, 0 }
         };
     }
 

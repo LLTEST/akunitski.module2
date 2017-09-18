@@ -25,11 +25,9 @@
             </run>
         </groups>
         <classes>
-            <class name="ttask4.isPositiveTest"/>
             <class name="ttask4.CoTangentTest"/>
             <class name="ttask4.TangentTest"/>
             <class name="ttask4.SquareTest"/>
-            <class name="ttask4.SumTest"/>
             <class name="ttask4.DivTest"/>
         </classes>
     </test>

@@ -29,7 +29,7 @@ public class TangentTest extends BaseTestClass {
     @DataProvider(name = "dataForTgNegative")
     public Object[][] dataForTgNegative() {
         return new Object[][] {
-                { 90 }   //  BUG: no exception for 90 Tg.
+                { 90 }   //  BUG: should have thrown an exception of class java.lang.ArithmeticException
         };
     }
 

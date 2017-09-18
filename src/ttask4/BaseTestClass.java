@@ -16,12 +16,12 @@ public class BaseTestClass {
 
     @BeforeMethod(groups = { "positive", "negative" })
     public void BeforeMethod(){
-
+        System.out.println("BeforeMethod");
     }
 
     @AfterMethod(groups = { "positive", "negative" })
     public void AfterMethod(){
-        System.out.println();
+        System.out.println("AfterMethod");
     }
 
 }
