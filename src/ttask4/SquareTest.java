@@ -20,16 +20,17 @@ public class SquareTest extends BaseTestClass {
         };
     }
 
-    @Test(description = "Simple negative sqrt:", dataProvider = "dataForSqrtNegative",
-            expectedExceptions = Exception.class, groups = {"negative"})
-    public void SqrtNegative(double first) {
-        calculator.sqrt(first);
+    @Test(description = "Simple negative sqrt:", dataProvider = "dataForSqrtNegative",expectedExceptions = ArithmeticException.class,
+            groups = {"negative"})
+    public void SqrtNegative(double first, String expected) {
+        double sqrt = calculator.sqrt(first);
+        Assert.assertEquals(sqrt, expected );
     }
 
     @DataProvider(name = "dataForSqrtNegative")
     public Object[][] ForSqrtNegative() {
         return new Object[][] {
-                {-9 }   //  BUG: No exception for negative Sqrt or NaN
+                {-9 , "NaN"}   //  BUG: No exception for negative Sqrt or NaN
         };
     }
 

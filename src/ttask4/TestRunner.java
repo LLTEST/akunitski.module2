@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class TestRunner {
 
-    @SuppressWarnings("serial")
+
     public static void main(String[] args) {
         TestNG testNG = new TestNG();
         testNG.addListener(new TestListenerAdapter());
