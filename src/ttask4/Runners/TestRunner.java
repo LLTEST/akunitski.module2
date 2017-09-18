@@ -1,8 +1,9 @@
-package ttask4;
+package ttask4.Runners;
 
 import org.testng.TestListenerAdapter;
 import org.testng.TestNG;
 import org.testng.xml.XmlSuite;
+import ttask4.Listeners.MyCustomListener;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class TestRunner {
         xmlsuite.setName("Calculator Tests suite");
         xmlsuite.setSuiteFiles(new ArrayList<String>() {
             {
-                add(".\\src\\ttask4\\runtests.xml");
+                add(".\\src\\ttask4\\suites\\runtests.xml");
             }
         });
         testNG.setXmlSuites(new ArrayList<XmlSuite>() {

@@ -1,4 +1,4 @@
-package ttask4;
+package ttask4.TestClasses;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

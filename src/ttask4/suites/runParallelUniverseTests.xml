@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Calculator" verbose="1" parallel="tests" thread-count="2">
+    <test name="PositiveTests">
+        <groups>
+            <run>
+                <include name="positive"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ttask4.TestClasses.isPositiveTest"/>
+            <class name="ttask4.TestClasses.CoTangentTest"/>
+            <class name="ttask4.TestClasses.TangentTest"/>
+            <class name="ttask4.TestClasses.SquareTest"/>
+            <class name="ttask4.TestClasses.SumTest"/>
+            <class name="ttask4.TestClasses.DivTest"/>
+        </classes>
+    </test>
+    <test name="NegativeTests">
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ttask4.TestClasses.CoTangentTest"/>
+            <class name="ttask4.TestClasses.TangentTest"/>
+            <class name="ttask4.TestClasses.SquareTest"/>
+            <class name="ttask4.TestClasses.DivTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,4 +1,4 @@
-package ttask4;
+package ttask4.TestClasses;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.AfterMethod;
